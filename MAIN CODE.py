@@ -9,7 +9,7 @@ hands = mp_hands.Hands()
 mp_draw = mp.solutions.drawing_utils
 
 while True:
-    _, img = cap.read()
+    sucess, img = cap.read()
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     results = hands.process(imgRGB)
     # print("[INFO] handmarks: {}".format(results.multi_hand_landmarks))
@@ -24,4 +24,4 @@ while True:
 
     cv2.imshow("Image", img)
     if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+        break 
