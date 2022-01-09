@@ -22,6 +22,8 @@ while True:
     #frame rate
     #display
     
+    
+    # find Hand LankMarks: 
     sucess, img = cap.read()
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     results = hands.process(imgRGB)
@@ -35,12 +37,15 @@ while True:
                 cv2.circle(img, (cx, cy), 10, (255, 0, 255), cv2.FILLED)
             mp_draw.draw_landmarks(img, hand_landmarks, mp_hands.HAND_CONNECTIONS)
     
-    #frame rate
+    
+    # frame rate
     cTime = time.time()
     fps = 1/(cTime-pTime)
     pTime = cTime
     cv2.putText(img, str(int(fps)), (20,50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
 
-    cv2.imshow("Image", img)
+    # Display
+    cv2.imshow("AI MOUSE.exe", img)
+    
     if cv2.waitKey(1) & 0xFF == ord('q'):
-        break 
+        break
